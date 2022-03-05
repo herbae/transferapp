@@ -1,0 +1,44 @@
+spring:
+  application.name: gateway
+  output.ansi.enabled: always
+
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-exception: false
+
+logging:
+  level:
+    root: WARN
+    org.iuryl.mstest.gateway: DEBUG
+
+zuul:
+  ignoredServices: '*'
+  routes:
+    accounts:
+      path: /public/accounts/**
+      serviceId: accounts
+      stripPrefix: false
+    users:
+      path: /public/users/**
+      serviceId: users
+      stripPrefix: false
+    transfers:
+      path: /public/transfers/**
+      serviceId: transfers
+      stripPrefix: false
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2000
+
+ribbon:
+  eureka:
+    enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: false
+

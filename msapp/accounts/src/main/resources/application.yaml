@@ -1,0 +1,19 @@
+spring:
+  application.name: accounts
+  output.ansi.enabled: always
+
+server:
+  port: 0 #random
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-exception: false
+
+logging:
+  level:
+    root: WARN
+    org.iuryl.mstest.accounts.service: TRACE
+
+ribbon:
+  eureka:
+    enabled: true

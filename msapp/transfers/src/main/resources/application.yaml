@@ -1,0 +1,23 @@
+spring:
+  application.name: transfers
+  output.ansi.enabled: always
+
+server:
+  port: 0 #random
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-exception: false
+
+logging:
+  level:
+    root: WARN
+    org.iuryl: INFO
+    org.iuryl.mstest.transfers.infra: INFO # change to trace to track execution time
+
+ribbon:
+  eureka:
+    enabled: true
+
+org.iuryl.mstest:
+  maxTranfersPerUser: 10000

@@ -1,0 +1,18 @@
+spring:
+  application.name: users
+  output.ansi.enabled: always
+
+server:
+  port: 0 #random
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-exception: false
+
+logging:
+  level:
+    root: WARN
+
+ribbon:
+  eureka:
+    enabled: true
